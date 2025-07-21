@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Mind</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/gray.css">
+  <link rel="icon" href="../imagens/cerebro.png" type="image/png"/>
+</head>
+<body>
+  <header>
+    <div class="title">Adolescência</div>
+    <div class="subtitle">My Mind</div>
+    <nav>
+      <a href="../index.html">Introdução</a>
+      <a href="#nada">Nada</a>
+      <a href="sobre-mim.html">Sobre Mim</a>
+      <a href="pensamentos.html">Pensamentos</a>
+      <a href="infancia.html">Infância</a>
+      <a href="relacionamentos.html">Relacionamentos</a>
+    </nav>
+  </header>
+  <main>
+    <section id="nada">
+      <h2>Nada</h2>
+      <p>Ainda não há nada aqui.</p>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Gabriel Da Silva Mello. Todos os direitos reservados.
+  </footer>
+
+  <div class="fireflies"></div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelector('.slides');
+    const totalSlides = document.querySelectorAll('.slide').length;
+    
+    function updateSlider() {
+      slides.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }
+    
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+    
+    setInterval(nextSlide, 5000);
+
+    window.history.scrollRestoration = "manual";
+
+    window.onload = function() {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 0);
+
+      const firefliesContainer = document.querySelector('.fireflies');
+      const numberOfFireflies = 7;
+
+      function generateFirefly() {
+        const firefly = document.createElement('div');
+        firefly.classList.add('firefly');
+
+        const windowHeight = document.documentElement.scrollHeight;
+        const windowWidth = document.documentElement.scrollWidth;
+
+        const topPosition = Math.random() * windowHeight;
+        const leftPosition = Math.random() * windowWidth;
+
+        const animationDuration = 3 + Math.random() * 5; 
+        const animationDelay = Math.random() * 5; 
+
+        firefly.style.top = `${topPosition}px`;
+        firefly.style.left = `${leftPosition}px`;
+        firefly.style.animationDuration = `${animationDuration}s`;
+        firefly.style.animationDelay = `${animationDelay}s`;
+
+        firefliesContainer.appendChild(firefly);
+
+        setTimeout(() => {
+          firefly.remove(); 
+          generateFirefly(); 
+        }, animationDuration * 1000);
+      }
+
+      for (let i = 0; i < numberOfFireflies; i++) {
+        generateFirefly();
+      }
+    };
+  </script>
+</body>
+</html>
