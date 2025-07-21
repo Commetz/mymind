@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Mind</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/gray.css">
+  <link rel="icon" href="imagens/cerebro.png" type="image/png"/>
+</head>
+<body>
+  <header>
+    <div class="title">Minha Mente</div>
+    <div class="subtitle">My Mind</div>
+    <nav>
+      <a href="#introducao">Introdução</a>
+      <a href="#como-funciona">Como Funciona?</a>
+      <a href="paginas/sobre-mim.html">Sobre Mim</a>
+      <a href="paginas/pensamentos.html">Pensamentos</a>
+      <a href="paginas/infancia.html">Infância</a>
+      <a href="paginas/adolescencia.html">Adolescência</a>
+      <a href="paginas/relacionamentos.html">Relacionamentos</a>
+    </nav>
+  </header>
+  
+  <main>
+
+    <section id="introducao">
+      <h2>Introdução</h2>
+      <p>Bem-vindos ao meu Universo, eu o chamo de My Mind. Aqui, vocês, Jefferson e Anny, terão a chance de entender o que se passa na minha mente, explorando meus sentimentos, motivações e memórias. Criei este site com o objetivo de facilitar o compartilhamento de informações, tanto sobre minha vida atual quanto sobre o meu passado. Espero que, com isso, vocês possam ter um acesso mais profundo às minhas experiências, oferecendo um espaço para análises e para perguntas que possam surgir. Sei que todos somos ocupados, mas gostaria que, sempre que desejarem, pudessem explorar minha mente como um quebra-cabeça, e resolver as partes que acharem necessárias. Agradeço pela paciência e espero que se divirtam e encontrem valor neste espaço.</p>
+    </section>
+    <section id="como-funciona">
+      <h2>Como Funciona?</h2>
+      <p>Como mencionei antes, este site é o meu Universo. Ele está separado em algumas categorias, são elas:</p>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li><strong>Sobre Mim</strong></li>
+        <li><strong>Pensamentos</strong></li>
+        <li><strong>Infância</strong></li>
+        <li><strong>Adolescência</strong></li>
+        <li><strong>Relacionamentos</strong></li>
+      </ul>
+      <br>
+      <p>Vocês podem acessar cada categoria clicando no nome correspondente no início da página. A seguir, explicarei um pouco sobre cada uma delas, para que possam se localizar melhor dentro deste meu labirinto.</p>
+    </section>
+    <section>
+      <h2>Sobre Mim</h2>
+      <p>Nesta categoria, vocês encontrarão explicações sobre quem eu sou e como me vejo. Haverá um breve resumo sobre isso, mas também uma versão mais completa, e assim organizarei esta categoria.</p>
+    </section>
+    <section>
+      <h2>Pensamentos</h2>
+      <p>Neste espaço, organizarei minhas ideias para compartilhar reflexões mais profundas sobre as coisas que frequentemente me pergunto e penso. Ao final, haverá uma seção onde escreverei de forma mais livre, separando minhas reflexões por datas e horários.</p>
+    </section>
+    <section>
+      <h2>Infância</h2>
+      <p>Neste local, contarei sobre minha infância, explicando como era minha situação na época, como fui criado e as experiências que vivi durante esse período.</p>
+    </section>
+    <section>
+      <h2>Adolescência</h2>
+      <p>Nesta espaço, falarei sobre minha adolescência, abordando minha situação atual de uma forma mais técnica e observadora. Vou detalhar como minha percepção sobre mim mesmo e o mundo ao meu redor se moldaram durante esse período, destacando momentos-chave que tiveram um impacto significativo na minha formação. A ideia aqui é oferecer uma visão mais analítica e reflexiva, separando as emoções e as experiências vividas para compreender melhor como elas influenciam a pessoa que sou hoje.</p>
+    </section>
+    <section>
+      <h2>Relacionamentos</h2>
+      <p>Por fim, nesta seção, falarei sobre o que penso de todos os meus relacionamentos: amizades, namoros passados e até mesmo sobre vocês. Organizei este conteúdo de acordo com as duas formas principais de pensamento que tenho, separando as diferentes perspectivas que moldam minha visão sobre as relações que vivi e vivo.</p>
+    </section>
+  </main>
+  
+  <footer>
+    &copy; 2025 Gabriel Da Siva Mello. Todos os direitos reservados.
+  </footer>
+  
+  <div class="fireflies"></div>
+  
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelector('.slides');
+    const totalSlides = document.querySelectorAll('.slide').length;
+    
+    function updateSlider() {
+      slides.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }
+    
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+    
+    setInterval(nextSlide, 5000);
+
+    window.history.scrollRestoration = "manual";
+
+    window.onload = function() {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 0);
+
+      const firefliesContainer = document.querySelector('.fireflies');
+      const numberOfFireflies = 25;
+
+      function generateFirefly() {
+        const firefly = document.createElement('div');
+        firefly.classList.add('firefly');
+
+        const windowHeight = document.documentElement.scrollHeight;
+        const windowWidth = document.documentElement.scrollWidth;
+
+        const topPosition = Math.random() * windowHeight;
+        const leftPosition = Math.random() * windowWidth;
+
+        const animationDuration = 3 + Math.random() * 5; 
+        const animationDelay = Math.random() * 5; 
+
+        firefly.style.top = `${topPosition}px`;
+        firefly.style.left = `${leftPosition}px`;
+        firefly.style.animationDuration = `${animationDuration}s`;
+        firefly.style.animationDelay = `${animationDelay}s`;
+
+        firefliesContainer.appendChild(firefly);
+
+        setTimeout(() => {
+          firefly.remove(); 
+          generateFirefly(); 
+        }, animationDuration * 1000);
+      }
+
+      for (let i = 0; i < numberOfFireflies; i++) {
+        generateFirefly();
+      }
+    };
+  </script>
+</body>
+</html>
